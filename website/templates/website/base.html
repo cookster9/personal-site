@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content=" LetAndrewCook " name="Description">
+    <title>LetAndrewCook</title>
+    <link rel="icon" href="{% static 'website/images/cool-glasses.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="{% static 'website/css/base.css' %}">
+    {% block adheader %}
+    {% endblock %}
+</head>
+<body>
+    <div id="site-header" class="header-row top-background">
+        <div class="header-label">
+            <header>
+                <span>
+                    <a href="/">
+                        <span class="color-primary header-span">Let</span>
+                        <span class="color-accent header-span">AndrewCook</span>
+                        <span class="color-primary header-span">.com</span>
+                    </a>
+                </span>
+            </header>
+        </div>
+        <div class = "header-links color-primary">
+            <a href="/"><div class = "header-link" >home</div></a>
+            <a href="/about"><div class = "header-link" >about</div></a>
+            <a href="/contact"><div class = "header-link" >contact</div></a>
+        </div>
+    </div>
+    {% block content %}
+        document.write('Content goes here');
+    {% endblock %}
+<footer>
+    <p>&copy; 2024 Andrew Cook. All rights reserved.</p>
+    <a href="https://www.flaticon.com/free-icons/cool-glasses" title="cool-glasses icons">Cool-glasses icons created by abdanbagus - Flaticon</a>
+</footer>
+</body>
+<script>
+</script>
+</html>

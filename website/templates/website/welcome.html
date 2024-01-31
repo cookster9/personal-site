@@ -1,0 +1,55 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block content %}
+<div class="welcome">
+    <div class="welcome-top-row">
+      <div class="welcome-top-text">
+        <h1>
+            Welcome to my website!
+        </h1>
+          <p>
+              I made this site to display a resume, show off some of my web apps, and generally try out making a website.
+              This site is running on django with an Apache web server using AWS Lightsail servers.
+          </p>
+      </div>
+      <div class="welcome-top-image">
+            <img src="{% static 'website/images/cool-glasses.png' %}" alt="coolcat">
+      </div>
+    </div>
+    <div class="welcome-middle-row second-background">
+        <div class="welcome-middle-image">
+            <img class="welcome-middle-image-img" src="{% static 'website/images/cool-glasses.png' %}" alt="coolcat">
+      </div>
+        <div class="welcome-middle-text">
+        <h2>
+            Hi I'm Andrew!
+        </h2>
+          <p>
+              I'm a data engineer specializing in healthcare data. I have been customer facing, developer, and in-between.
+              In my spare time I like to learn new things like web development, cloud engineering, and cybersecurity.
+          </p>
+      </div>
+    </div>
+    <div class="welcome-bottom-row third-background">
+        <div class="welcome-job-grid">
+
+            <div class="welcome-job-button h2">
+                <span>Data Engineering</span>
+            </div>
+
+            <div class="welcome-job-button h2">
+                <span>Technical Problem Solving</span>
+            </div>
+
+            <div class="welcome-job-button h2">
+                <span>Cyber Security</span>
+            </div>
+
+            <div class="welcome-job-button h2">
+                <span>Web Development</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
