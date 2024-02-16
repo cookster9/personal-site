@@ -1,0 +1,308 @@
+html { overflow-x: hidden; }
+
+h1 { font-size: 1.8rem; }
+
+h2{
+    margin-top: 0;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    line-height: 1em;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 19px;
+    line-height: 1em;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p, em, span, a, address, h3 { color: #e6edfc; }
+
+a:hover, a.active { color: #309AFD; }
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.color-primary{
+    color: #e6edfc;
+}
+
+label{
+    text-overflow: ellipsis;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.top-background{
+    background-color: #202536;
+}
+
+.top-content{
+    height: auto;
+    padding: 5px 50px;
+    color: #e6edfc;
+}
+
+.uparrow{
+    transform: rotate(180deg);
+}
+
+.landing{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.landing-box{
+    flex: 1;
+    min-width: 40vh;
+    padding: 5px 0px;
+}
+
+.second-background{
+    background-color: #d4d6d9;
+}
+
+.second-content{
+    display: flex;
+    justify-content: center;
+}
+
+.second-content span{
+    color: #031842;
+}
+
+.header-row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 5px 35px;
+}
+
+.header-span{
+    margin: 2px 0px;
+    display: inline-block;
+    white-space:pre;
+}
+
+.header-label{
+    min-width: 60vw;
+    flex:2;
+}
+
+.header-links{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: auto;
+    min-width: 30vw;
+    flex:1;
+}
+
+.header-links a{
+    text-align:center;
+    flex: 1
+}
+
+.header-link{
+    margin: auto;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #e6edfc;
+    padding: 8px;
+}
+
+.other-header{
+    margin: 0px;
+    font-size: 1.875em;
+    padding: 10px 50px;
+}
+
+.other-container{
+    line-height: 1em;
+    padding: 35px 35px;
+}
+
+.about p{
+    line-height: 1.2em;
+}
+
+.sub-header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    white-space: normal;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+}
+
+.sub-header p{
+color: #facea7;
+}
+
+.sub-header button{
+    border-radius: 0px;
+    height: auto;
+    width: auto;
+    padding: 0px;
+    cursor: pointer;
+    background-color: #202536;
+}
+
+.sub-header img{
+    color: white;
+    height: 5vh;
+    width: 10vh;
+}
+
+.map-container{
+    padding: 10px 35px 10px 35px;
+}
+
+#map{
+    height: 70vh;
+    width: 90vw;
+}
+
+.tableFixHead {
+        max-height: 300px;
+        overflow: auto;
+  }
+
+.tableFixHead table{
+    border: 1px solid;
+  }
+
+  .tableFixHead td{
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+  }
+
+.tableFixHead td:nth-child(1) {
+    width: 60%;
+     }
+
+.tableFixHead td:nth-child(2) {
+    width: 20%;
+    max-width: 150px;
+     }
+
+.tableFixHead td:nth-child(3) {
+    width: 20%;
+    max-width: 150px;
+     }
+
+.tableFixHead button {
+  min-width: 10vw;
+  max-width: 15vw;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+  text-overflow: ellipsis;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group div{
+    flex: 1;
+    display: flex;
+}
+
+.form-group label{
+    justify-content: flex-start;
+    width: 100px;
+    text-overflow: ellipsis;
+}
+
+.form-group input{
+    justify-content: flex-end;
+}
+
+.checkbox-input{
+    font-size: 14px;
+    min-width: 0;
+
+}
+
+.checkbox-container{
+    border:2px solid #ccc;
+    overflow-y: scroll;
+    margin-left: 75%;
+    height: 100%;
+}
+
+.checkbox-container ul{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    list-style-type: none;
+    padding-inline-start: 0px;
+    margin-block-start: 0em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.checkbox-container li{
+    padding: 0px 0px 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+footer p{
+    color: #031842;
+}
+
+footer a{
+    color: #031842;
+}
+
+.overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 999999; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nrhs-ad{
+    height:100px;
+    width: 50%;
+    margin: auto;
+    border-style: solid;
+}
+

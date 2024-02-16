@@ -240,6 +240,16 @@ header{
     padding: 35px 35px;
 }
 
+/* map */
+.map-container{
+    padding: 10px 35px 10px 35px;
+}
+
+#map{
+    height: 70vh;
+    width: 90vw;
+}
+
 /* about */
 
 .about p{

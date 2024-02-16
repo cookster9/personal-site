@@ -2,7 +2,7 @@ class MyRouter:
     """
     """
 
-    django_map_app_labels = {"django_map"}
+    django_map_app_labels = {"django_map","dashboard"}
 
     def db_for_read(self, model, **hints):
         """

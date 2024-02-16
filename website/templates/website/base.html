@@ -9,6 +9,12 @@
     <link rel="icon" href="{% static 'website/images/cool-glasses.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
     <link rel="stylesheet" href="{% static 'website/css/base.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
     {% block adheader %}
     {% endblock %}
 </head>
@@ -25,6 +31,7 @@
         </div>
         <nav class = "header-links color-primary">
             <a href="/"><div class = "header-link" >home</div></a>
+            <a href="/map"><div class = "header-link" >map</div></a>
             <a href="/about"><div class = "header-link" >about</div></a>
             <a href="/contact"><div class = "header-link" >contact</div></a>
         </nav>
@@ -37,6 +44,6 @@
     <a href="https://www.flaticon.com/free-icons/cool-glasses" title="cool-glasses icons">Cool-glasses icons created by abdanbagus - Flaticon</a>
 </footer>
 </body>
-<script src = "{% static 'website/js/modal.js' %}">
-</script>
+{% block scripts %}
+{% endblock %}
 </html>

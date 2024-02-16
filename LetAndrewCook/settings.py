@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'website.apps.WebsiteConfig',
+    'dashboard.apps.DashboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -90,7 +91,7 @@ DATABASES = {
     },
 "reporting": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "reporting",
+        "NAME": config('MAP_DB_NAME'),
         "OPTIONS" : {
                     },
         "USER": config('DB_USER'),
