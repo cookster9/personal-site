@@ -13,24 +13,22 @@
     {% endblock %}
 </head>
 <body>
-    <div id="site-header" class="header-row top-background">
+    <header id="site-header" class="header-row top-background">
         <div class="header-label">
-            <header>
-                <span>
-                    <a href="/">
-                        <span class="color-primary header-span">Let</span>
-                        <span class="color-accent header-span">AndrewCook</span>
-                        <span class="color-primary header-span">.com</span>
-                    </a>
-                </span>
-            </header>
+            <span>
+                <a href="/">
+                    <span class="color-primary header-span">Let</span>
+                    <span class="color-accent header-span">AndrewCook</span>
+                    <span class="color-primary header-span">.com</span>
+                </a>
+            </span>
         </div>
-        <div class = "header-links color-primary">
+        <nav class = "header-links color-primary">
             <a href="/"><div class = "header-link" >home</div></a>
             <a href="/about"><div class = "header-link" >about</div></a>
             <a href="/contact"><div class = "header-link" >contact</div></a>
-        </div>
-    </div>
+        </nav>
+    </header>
     {% block content %}
         document.write('Content goes here');
     {% endblock %}
@@ -39,6 +37,6 @@
     <a href="https://www.flaticon.com/free-icons/cool-glasses" title="cool-glasses icons">Cool-glasses icons created by abdanbagus - Flaticon</a>
 </footer>
 </body>
-<script>
+<script src = "{% static 'website/js/modal.js' %}">
 </script>
 </html>

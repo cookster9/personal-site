@@ -16,40 +16,62 @@
             <img src="{% static 'website/images/cool-glasses.png' %}" alt="coolcat">
       </div>
     </div>
-    <div class="welcome-middle-row second-background">
-        <div class="welcome-middle-image">
-            <img class="welcome-middle-image-img" src="{% static 'website/images/cool-glasses.png' %}" alt="coolcat">
-      </div>
-        <div class="welcome-middle-text">
-        <h2>
-            Hi I'm Andrew!
-        </h2>
-          <p>
-              I'm a data engineer specializing in healthcare data. I have been customer facing, developer, and in-between.
-              In my spare time I like to learn new things like web development, cloud engineering, and cybersecurity.
-          </p>
-      </div>
-    </div>
     <div class="welcome-bottom-row third-background">
         <div class="welcome-job-grid">
 
-            <div class="welcome-job-button h2">
+            <div class="welcome-job-button h2" id="data-eng">
                 <span>Data Engineering</span>
             </div>
 
-            <div class="welcome-job-button h2">
+            <div class="welcome-job-button h2" id="tech-prob-solve">
                 <span>Technical Problem Solving</span>
             </div>
 
-            <div class="welcome-job-button h2">
+            <div class="welcome-job-button h2" id="cloud-eng">
+                <span>Cloud Engineering</span>
+            </div>
+
+            <div class="welcome-job-button h2" id="cyber-sec">
                 <span>Cyber Security</span>
             </div>
 
-            <div class="welcome-job-button h2">
-                <span>Web Development</span>
-            </div>
-
         </div>
+    </div>
+    <div id="deModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>This is my data engineering experience</p>
+      </div>
+
+    </div>
+    <div id="tsModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>This is my technical solutions engineering experience</p>
+      </div>
+
+    </div>
+    <div id="csModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>This is my cybersecurity experience</p>
+      </div>
+
+    </div>
+    <div id="wdModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>This is my web development experience</p>
+      </div>
+
     </div>
 </div>
 {% endblock %}
