@@ -22,7 +22,8 @@ def success(request):
 
 # /
 def leaflet_map(request):
-    context = None
+    context = {}
+    form=None
     if request.method == "POST":
         # Create a form instance and populate it with data from the request (binding):
         form = NeighborhoodUpdateForm(request.POST)
@@ -32,7 +33,8 @@ def leaflet_map(request):
             update_id = form.cleaned_data['id']
             print("Update ID", update_id)
             success_message = update_neighborhood(update_id)
-
+            # force cache update?
+            cache.touch("map", 0)
             # redirect to a new URL:
             messages.success(request, success_message)
             return redirect('success')
@@ -111,8 +113,10 @@ def leaflet_map(request):
             ,'top100': top_dict
             ,'form': form
         }
-
-        cache.set('map',context)
+        print("setting cache")
+        cache.set('map', context)
+        context['form']=form
     else:
+        context['form'] = form
         print("got cached content")
     return render(request, 'dashboard/map_leaflet.html', context)

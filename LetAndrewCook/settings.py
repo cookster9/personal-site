@@ -142,3 +142,22 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# email
+DEFAULT_FROM_EMAIL = "andrew@letandrewcook.com"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"  # new
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_HOST_USER = 'andrew@letandrewcook.com'
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+# https://docs.djangoproject.com/en/4.2/topics/cache/
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.db.DatabaseCache",
+        "LOCATION": "my_cache_table",
+        "TIMEOUT": 60 * 60 * 12,
+    }
+}
