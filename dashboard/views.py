@@ -40,7 +40,7 @@ def leaflet_map(request):
             return redirect('success')
     else:
         form = NeighborhoodUpdateForm()
-    # context = cache.get('map')
+    context = cache.get('map')
     if context is None or not(context):
 
         # Get the current date and calculate the date six weeks ago
