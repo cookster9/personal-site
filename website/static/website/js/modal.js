@@ -14,8 +14,8 @@ function showModal(id) {
     modals.forEach((modal) =>{
         if(id=="data-eng" && modal.id == "deModal") modal.style.display = "block";
         if(id=="tech-prob-solve" && modal.id == "tsModal") modal.style.display = "block";
-        if(id=="cloud-eng" && modal.id == "csModal") modal.style.display = "block";
-        if(id=="cyber-sec" && modal.id == "wdModal") modal.style.display = "block";
+        if(id=="cloud-eng" && modal.id == "ceModal") modal.style.display = "block";
+        if(id=="cyber-sec" && modal.id == "csModal") modal.style.display = "block";
     })
 }
 

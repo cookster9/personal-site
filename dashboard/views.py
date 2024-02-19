@@ -40,8 +40,8 @@ def leaflet_map(request):
             return redirect('success')
     else:
         form = NeighborhoodUpdateForm()
-    context = cache.get('map')
-    if context is None:
+    # context = cache.get('map')
+    if context is None or not(context):
 
         # Get the current date and calculate the date six weeks ago
         now = datetime.now()
@@ -93,6 +93,7 @@ def leaflet_map(request):
                               ,'sale_date': result.sale_date
                               ,'sale_price': result.sale_price
                               ,'square_footage': result.real_estate_properties.square_footage}
+                print(house_json)
                 group_dict[str(neighborhood)]['house_list'].append(house_json)
                 if len(top_dict) < 100:
                     top_dict[len(top_dict)] = house_json
