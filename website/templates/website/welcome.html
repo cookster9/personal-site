@@ -18,61 +18,24 @@
     </div>
     <div class="welcome-bottom-row third-background">
         <div class="welcome-job-grid">
-
-            <div class="welcome-job-button h2" id="data-eng">
-                <span>Data Engineering</span>
+            {% for modal in modals %}
+            <div class="welcome-job-button h2" id={{ modal.id }}>
+                <span>{{ modal.title }}</span>
             </div>
-
-            <div class="welcome-job-button h2" id="tech-prob-solve">
-                <span>Technical Problem Solving</span>
-            </div>
-
-            <div class="welcome-job-button h2" id="cloud-eng">
-                <span>Cloud Engineering</span>
-            </div>
-
-            <div class="welcome-job-button h2" id="cyber-sec">
-                <span>Cyber Security</span>
-            </div>
-
+            {% endfor %}
         </div>
     </div>
-    <div id="deModal" class="modal">
 
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>This is my data engineering experience</p>
-      </div>
+    {% for modal in modals %}
+        <div id="modal{{ modal.id }}" class="modal {{ modal.id }}">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>{{modal.content}}</p>
+          </div>
+        </div>
+    {% endfor %}
 
-    </div>
-    <div id="tsModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>This is my technical solutions engineering experience</p>
-      </div>
-
-    </div>
-    <div id="csModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>This is my cybersecurity experience</p>
-      </div>
-
-    </div>
-    <div id="ceModal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>This is my cloud engineering experience</p>
-      </div>
-
-    </div>
 </div>
 {% endblock %}
 {% block scripts %}

@@ -12,10 +12,7 @@ jobDivs.forEach((div) => {
 // When the user clicks on the div, open the modal
 function showModal(id) {
     modals.forEach((modal) =>{
-        if(id=="data-eng" && modal.id == "deModal") modal.style.display = "block";
-        if(id=="tech-prob-solve" && modal.id == "tsModal") modal.style.display = "block";
-        if(id=="cloud-eng" && modal.id == "ceModal") modal.style.display = "block";
-        if(id=="cyber-sec" && modal.id == "csModal") modal.style.display = "block";
+        if(modal.classList.contains(id)) modal.style.display = "block";
     })
 }
 
