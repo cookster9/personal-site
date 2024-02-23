@@ -112,7 +112,6 @@ def leaflet_map(request):
             ,'nash_long': NASHVILLE_LONGITUDE
             ,'groups': sorted_dict
             ,'top100': top_dict
-            ,'form': form
         }
         print("setting cache")
         cache.set('map', context)
