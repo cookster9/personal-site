@@ -8,6 +8,7 @@ from dashboard.models import RealEstateProperties
 from dashboard.models import Neighborhoods
 from dashboard.models import RealEstateSales
 import datetime
+from django.core.cache import cache
 
 import pdb
 
@@ -26,7 +27,7 @@ def update_neighborhood(id):
         print("set processing?")
         n[0].save()
     else:
-        return 'ID already processing'
+        return
 
     houses_to_try_urls_for = RealEstateSales.objects\
         .select_related('real_estate_properties')\
@@ -120,7 +121,9 @@ def update_neighborhood(id):
                 n[0].last_updated = datetime.datetime.now(datetime.timezone.utc)
                 n[0].save()
                 #SUCCESS
-                return 'Update queued for neighborhood: ' + str(id)
+                # force cache update?
+                cache.touch("map", 0)  # synchronous, but you don't want to do it until the update actually completes
+                return
         except:
             print("continue")
 

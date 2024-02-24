@@ -21,7 +21,28 @@ def success(request):
     return render(request, 'dashboard/success.html', context)
 
 # /
-def leaflet_map(request):
+async def async_leaflet_map(request):
+    context = {}
+    form = None
+    if request.method == "POST":
+        # Create a form instance and populate it with data from the request (binding):
+        form = NeighborhoodUpdateForm(request.POST)
+        # Check if the form is valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required (here we just write it to the model due_back field)
+            update_id = form.cleaned_data['id']
+            print("Update ID", update_id)
+            await update_neighborhood(update_id)
+
+            # redirect to a new URL:
+            messages.success(request,  'Update queued for neighborhood: ' + str(update_id))
+            return redirect('success')
+    else:
+        form = NeighborhoodUpdateForm()
+
+    context = leaflet_map(request, form)
+    return render(request, 'dashboard/map_leaflet.html', context)
+def leaflet_map(request, form):
     context = {}
     form=None
     if request.method == "POST":
@@ -119,4 +140,5 @@ def leaflet_map(request):
     else:
         context['form'] = form
         print("got cached content")
-    return render(request, 'dashboard/map_leaflet.html', context)
+    return context
+
