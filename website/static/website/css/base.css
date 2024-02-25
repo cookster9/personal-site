@@ -65,11 +65,16 @@ label{
     color: #e6edfc;
 }
 
+.top-content p,h3{
+    color: #e6edfc;
+}
+
 /* header */
 
 header{
     position: sticky;
 	top: 0px;
+	z-index: 4000;
 }
 
 

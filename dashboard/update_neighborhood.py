@@ -14,7 +14,7 @@ import pdb
 
 url_base = 'https://davidson-tn-citizen.comper.info/template.aspx?propertyID='
 def update_neighborhood(id):
-    print("in update neighborhood")
+
     neighborhood_id = id
     # get map parcel of top 1 reis in neighborhood https://stackoverflow.com/questions/844591/how-to-do-select-max-in-django
     # trim map parcel
@@ -122,13 +122,12 @@ def update_neighborhood(id):
                 n[0].save()
                 #SUCCESS
                 # force cache update?
-                cache.touch("map", 0)  # synchronous, but you don't want to do it until the update actually completes
+                print("done, force cache update")
+                cache.touch("map", 0)
                 return
         except:
             print("continue")
-
-
-    return 'Could not update neighborhood'+str(id)
+    return
 
 def get_html(url):
     options = webdriver.ChromeOptions()
