@@ -8,12 +8,13 @@ from dashboard.models import RealEstateProperties
 from dashboard.models import Neighborhoods
 from dashboard.models import RealEstateSales
 import datetime
+from django.core.cache import cache
 
 import pdb
 
 url_base = 'https://davidson-tn-citizen.comper.info/template.aspx?propertyID='
 def update_neighborhood(id):
-    print("in update neighborhood")
+
     neighborhood_id = id
     # get map parcel of top 1 reis in neighborhood https://stackoverflow.com/questions/844591/how-to-do-select-max-in-django
     # trim map parcel
@@ -26,7 +27,7 @@ def update_neighborhood(id):
         print("set processing?")
         n[0].save()
     else:
-        return 'ID already processing'
+        return
 
     houses_to_try_urls_for = RealEstateSales.objects\
         .select_related('real_estate_properties')\
@@ -120,12 +121,13 @@ def update_neighborhood(id):
                 n[0].last_updated = datetime.datetime.now(datetime.timezone.utc)
                 n[0].save()
                 #SUCCESS
-                return 'Update queued for neighborhood: ' + str(id)
+                # force cache update?
+                print("done, force cache update")
+                cache.touch("map", 0)
+                return
         except:
             print("continue")
-
-
-    return 'Could not update neighborhood'+str(id)
+    return
 
 def get_html(url):
     options = webdriver.ChromeOptions()

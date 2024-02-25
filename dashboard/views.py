@@ -12,6 +12,7 @@ from django.conf import settings
 from dashboard.models import Neighborhoods
 from django.contrib import messages
 from .update_neighborhood import update_neighborhood
+import threading
 
 module_dir = os.path.dirname(__file__)
 
@@ -21,25 +22,34 @@ def success(request):
     return render(request, 'dashboard/success.html', context)
 
 # /
-def leaflet_map(request):
+def async_leaflet_map(request):
     context = {}
-    form=None
+    form = None
     if request.method == "POST":
         # Create a form instance and populate it with data from the request (binding):
         form = NeighborhoodUpdateForm(request.POST)
         # Check if the form is valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required (here we just write it to the model due_back field)
+            # process the data in form.cleaned_data as required
             update_id = form.cleaned_data['id']
             print("Update ID", update_id)
-            success_message = update_neighborhood(update_id)
-            # force cache update?
-            cache.touch("map", 0)
+            t = threading.Thread(target=update_neighborhood,
+                                 args=(update_id,)
+                                 )
+            t.setDaemon(True)
+            t.start()
+
             # redirect to a new URL:
-            messages.success(request, success_message)
+            messages.success(request,  'Update queued for neighborhood: ' + str(update_id))
             return redirect('success')
     else:
         form = NeighborhoodUpdateForm()
+
+    context = leaflet_map(form)
+    # context = leaflet_map(request, form)
+    return render(request, 'dashboard/map_leaflet.html', context)
+
+def leaflet_map(form):
     context = cache.get('map')
     if context is None or not(context):
 
@@ -119,4 +129,5 @@ def leaflet_map(request):
     else:
         context['form'] = form
         print("got cached content")
-    return render(request, 'dashboard/map_leaflet.html', context)
+    return context
+
