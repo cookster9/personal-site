@@ -9,6 +9,7 @@ from dashboard.models import Neighborhoods
 from dashboard.models import RealEstateSales
 import datetime
 from django.core.cache import cache
+from decouple import config
 
 import pdb
 
@@ -136,8 +137,7 @@ def get_html(url):
     options.add_argument('--allow-running-insecure-content')
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     # executable_path param is not needed if you updated PATH
-    PROJECT_ROOT = '/Users/andrewcook/Documents/Programming/'
-    DRIVER_BIN = os.path.join(PROJECT_ROOT, "chromedriver")
+    DRIVER_BIN = os.path.join(config('PROJECT_ROOT'), "chromedriver")
     browser = webdriver.Chrome(options=options)
 
     print("about to get url")
