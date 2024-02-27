@@ -130,6 +130,8 @@ header{
 
 .welcome-top-row{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     padding: 10vh;
     height: 40vh;
 }
@@ -139,6 +141,7 @@ header{
     flex-direction: column;
     justify-content: center;
     flex: 2;
+    min-width: 30vw;
 }
 
 .welcome-top-text p{
@@ -154,7 +157,9 @@ header{
 }
 
 .welcome-top-image img{
-    height: 40vh;
+    max-width: 100%;
+    min-width: 20vw;
+    height: auto;
 }
 
 .welcome-job-grid{
@@ -172,10 +177,11 @@ header{
     justify-content: center;
     align-items: center;
     height: 10vh;
-    width: 100%;
+    width: 95%;
     border: 1px solid black;
     border-radius: 5px;
     transition: 1s;
+    padding: 5px;
 }
 
 .welcome-job-button:hover{
