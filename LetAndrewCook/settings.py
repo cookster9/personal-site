@@ -11,11 +11,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
 import pymysql
 pymysql.version_info = (1, 4, 3, "final", 0)
 pymysql.install_as_MySQLdb()
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,23 +27,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
-SECURE_SSL_REDIRECT = config('SSL_REDIRECT', default=False, cast=bool)
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
+SECURE_SSL_REDIRECT = os.getenv('SSL_REDIRECT', 'False').lower() == 'true'
 SECURE_SSL_HOST="https://www.letandrewcook.com:443"
-PREPEND_WWW = config('PREPEND_WWW', default=False, cast=bool)
-BASE_URL = config('BASE_URL', default='localhost')
+PREPEND_WWW = os.getenv('PREPEND_WWW', default=False)
+BASE_URL = os.getenv('BASE_URL', 'False').lower() == 'true'
 
-ALLOWED_HOSTS =config('ALLOWED_HOSTS').split(",")
+ALLOWED_HOSTS =os.getenv('ALLOWED_HOSTS').split(",")
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'website.apps.WebsiteConfig',
-    'dashboard.apps.DashboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -90,22 +91,13 @@ WSGI_APPLICATION = 'LetAndrewCook.wsgi.application'
 DATABASES = {
 "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": config('DB_NAME'),
+        "NAME": os.getenv('DB_NAME'),
         "OPTIONS" : {
                             },
-        "USER": config('DB_USER'),
-        "PASSWORD": config('DB_PASSWORD'),
-        "HOST": config('DB_HOST')
+        "USER": os.getenv('DB_USER'),
+        "PASSWORD": os.getenv('DB_PASSWORD'),
+        "HOST": os.getenv('DB_HOST')
     },
-"reporting": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": config('MAP_DB_NAME'),
-        "OPTIONS" : {
-                    },
-        "USER": config('DB_USER'),
-        "PASSWORD": config('DB_PASSWORD'),
-        "HOST": config('DB_HOST')
-    }
 }
 
 DATABASE_ROUTERS = ["LetAndrewCook.router.MyRouter"]
@@ -146,7 +138,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = config('STATIC_ROOT', default=os.path.join(BASE_DIR, 'static'))
+STATIC_ROOT = os.getenv('STATIC_ROOT', default=os.path.join(BASE_DIR, 'static'))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -158,7 +150,7 @@ DEFAULT_FROM_EMAIL = "andrew@letandrewcook.com"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"  # new
 EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_HOST_USER = 'andrew@letandrewcook.com'
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
