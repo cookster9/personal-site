@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import pymysql
-pymysql.version_info = (1, 4, 3, "final", 0)
-pymysql.install_as_MySQLdb()
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -42,6 +39,7 @@ ALLOWED_HOSTS =os.getenv('ALLOWED_HOSTS').split(",")
 # Application definition
 
 INSTALLED_APPS = [
+    'tictactoe_app',
     'website.apps.WebsiteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
