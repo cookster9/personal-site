@@ -4,12 +4,10 @@ from django.conf import settings
 from django.core.mail import BadHeaderError
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
-from .models import Modal
 
 # /
 def welcome(request):
-    queryset = Modal.objects.all()
-    context = {'modals': queryset}
+    context = {}
     return render(request, 'website/welcome.html', context)
 
 # /about

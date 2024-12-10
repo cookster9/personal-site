@@ -18,27 +18,10 @@
     </div>
     <div class="welcome-bottom-row third-background">
         <div class="welcome-job-grid">
-            {% for modal in modals %}
-            <div class="welcome-job-button h2" id={{ modal.id }}>
-                <span>{{ modal.title }}</span>
-            </div>
-            {% endfor %}
         </div>
     </div>
-
-    {% for modal in modals %}
-        <div id="modal{{ modal.id }}" class="modal {{ modal.id }}">
-          <!-- Modal content -->
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>{{modal.content}}</p>
-          </div>
-        </div>
-    {% endfor %}
 
 </div>
 {% endblock %}
 {% block scripts %}
-<script src = "{% static 'website/js/modal.js' %}">
-</script>
 {% endblock %}
