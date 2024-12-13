@@ -2,13 +2,13 @@
 
 {% block content %}
 <!-- templates/email.html -->
-<div class="other-container top-content top-background">
-    <h2 class="other-header color-primary">Contact Us</h2>
-    <div class="form-group">
+<div class="flex">
+    <h2 class="">Contact Us</h2>
+    <div class="">
         <form method="post">
             {% csrf_token %}
             {{ form.as_div }}
-            <div class="form-actions">
+            <div class="">
               <button type="submit">Send</button>
             </div>
         </form>
