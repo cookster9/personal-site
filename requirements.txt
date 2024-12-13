@@ -2,7 +2,6 @@ asgiref==3.8.1
 cffi==1.17.1
 cryptography==44.0.0
 Django==5.1.4
-django-tictactoe-htmx @ git+https://github.com/cookster9/django-htmx-tictactoe.git@2609eef9b654e5443d3f55090f4985a052353c87
 mod_wsgi==5.0.2
 pycparser==2.22
 pytailwindcss==0.2.0
