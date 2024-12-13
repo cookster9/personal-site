@@ -1,49 +1,58 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html class="overflow-x-hidden" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content=" LetAndrewCook " name="Description">
     <title>LetAndrewCook</title>
     <link rel="icon" href="{% static 'website/images/cool-glasses.png' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
-    <link rel="stylesheet" href="{% static 'website/css/base.css' %}">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+    <link rel="stylesheet" href="{% static 'website/css/output.css' %}">
     {% block adheader %}
     {% endblock %}
 </head>
 <body>
-    <header id="site-header" class="header-row top-background">
-        <div class="header-label">
-            <span>
-                <a href="/">
-                    <span class="color-primary header-span">Let</span>
-                    <span class="color-accent header-span">AndrewCook</span>
-                    <span class="color-primary header-span">.com</span>
+    <header id="site-header" class="bg-gray-700">
+        <div class="px-4 py-3 flex items-center justify-between">
+            <div class="text-2xl">
+                <a href="/" class="">
+                    <span class="text-gray-300 inline-block">Let</span>
+                    <span class="text-orange-400 inline-block">AndrewCook</span>
+                    <span class="text-gray-300 inline-block">.com</span>
                 </a>
-            </span>
+            </div>
+            <div class="">
+                <button onclick="toggleVisibility('links')" class="px-3 py-2 border rounded text-gray-200 border-gray-500 hover:text-white hover:border-white">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+                </button>
+            </div>
         </div>
-        <nav class = "header-links color-primary">
-            <a href="/"><div class = "header-link" >home</div></a>
-            <a href="/tictactoe"><div class = "header-link" >tictactoe</div></a>
-            <a href="/about"><div class = "header-link" >about</div></a>
-            <a href="/contact"><div class = "header-link" >contact</div></a>
-        </nav>
+        <div id="links" class="text-gray-200 px-2 pt-2 pb-4 hidden">
+            <a class = "block px-2 py-1 text-white font-semibold hover:bg-gray-600 rounded" href="/">home</a>
+            <a class = "block px-2 py-1 mt-1 text-white font-semibold hover:bg-gray-600 rounded" href="/tictactoe">tictactoe</a>
+            <a class = "block px-2 py-1 mt-1 text-white font-semibold hover:bg-gray-600 rounded" href="/about">about</a>
+            <a class = "block px-2 py-1 mt-1 text-white font-semibold hover:bg-gray-600 rounded" href="/contact">contact</a>
+        </div>
     </header>
     {% block content %}
         document.write('Content goes here');
     {% endblock %}
-<footer>
+<footer class="text-xs">
     <p>&copy; 2024 Andrew Cook. All rights reserved.</p>
     <a href="https://www.flaticon.com/free-icons/cool-glasses" title="cool-glasses icons">Cool-glasses icons created by abdanbagus - Flaticon</a>
 </footer>
 </body>
+<script>
+    function toggleVisibility(elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.classList.toggle('hidden');
+        } else {
+            console.error(`Element with ID "${elementId}" not found.`);
+        }
+    }
+    
+</script>
 {% block scripts %}
 {% endblock %}
 </html>
