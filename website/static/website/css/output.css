@@ -558,6 +558,14 @@ video {
   position: static;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-auto {
+  margin: auto;
+}
+
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -574,10 +582,6 @@ video {
   display: flex;
 }
 
-.grid {
-  display: grid;
-}
-
 .hidden {
   display: none;
 }
@@ -590,36 +594,24 @@ video {
   height: 24rem;
 }
 
-.w-1\/3 {
-  width: 33.333333%;
+.w-1\/6 {
+  width: 16.666667%;
 }
 
-.w-2\/3 {
-  width: 66.666667%;
+.w-10 {
+  width: 2.5rem;
 }
 
 .w-3 {
   width: 0.75rem;
 }
 
-.w-1\/6 {
-  width: 16.666667%;
-}
-
-.flex-row {
-  flex-direction: row;
+.w-5 {
+  width: 1.25rem;
 }
 
 .flex-col {
   flex-direction: column;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.content-center {
-  align-content: center;
 }
 
 .items-center {
@@ -706,8 +698,8 @@ video {
   text-align: left;
 }
 
-.text-center {
-  text-align: center;
+.text-right {
+  text-align: right;
 }
 
 .text-2xl {
@@ -724,11 +716,6 @@ video {
   font-weight: 600;
 }
 
-.text-blue-950 {
-  --tw-text-opacity: 1;
-  color: rgb(23 37 84 / var(--tw-text-opacity, 1));
-}
-
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity, 1));
@@ -737,6 +724,11 @@ video {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-800 {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
 }
 
 .text-orange-400 {
@@ -749,14 +741,14 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.text-gray-800 {
-  --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity, 1));
-}
-
 .hover\:border-white:hover {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
+.hover\:border-gray-800:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(31 41 55 / var(--tw-border-opacity, 1));
 }
 
 .hover\:bg-gray-600:hover {
@@ -770,20 +762,12 @@ video {
 }
 
 @media (min-width: 640px) {
-  .sm\:mt-0 {
-    margin-top: 0px;
-  }
-
   .sm\:ml-2 {
     margin-left: 0.5rem;
   }
 
-  .sm\:block {
-    display: block;
-  }
-
-  .sm\:inline-block {
-    display: inline-block;
+  .sm\:mt-0 {
+    margin-top: 0px;
   }
 
   .sm\:flex {
@@ -826,13 +810,5 @@ video {
   .sm\:py-3 {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-  }
-
-  .sm\:text-left {
-    text-align: left;
-  }
-
-  .sm\:text-center {
-    text-align: center;
   }
 }
