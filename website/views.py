@@ -10,10 +10,10 @@ def welcome(request):
     context = {}
     return render(request, 'website/welcome.html', context)
 
-# /about
-def about_page(request):
+# /resume
+def resume_page(request):
     context = {}
-    return render(request, 'website/about.html', context)
+    return render(request, 'website/resume.html', context)
 
 # /contact
 def contact_page(request):
