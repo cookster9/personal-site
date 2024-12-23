@@ -15,6 +15,11 @@ def resume_page(request):
     context = {}
     return render(request, 'website/resume.html', context)
 
+# /apps
+def apps_page(request):
+    context = {}
+    return render(request, 'website/apps.html', context)
+
 # /contact
 def contact_page(request):
     if request.method == "GET":
