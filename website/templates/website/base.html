@@ -15,7 +15,7 @@
     <header id="site-header" class="bg-gray-700 sm:flex sm:justify-between sm:px-4 sm:py-3 sm:items-center">
         <div class="px-4 py-3 flex items-center justify-between sm:p-0">
             <div class="text-2xl">
-                <a href="/" class="">
+                <a href={% url 'welcome' %} class="">
                     <span class="text-gray-300 inline-block">Let</span>
                     <span class="text-orange-400 inline-block">AndrewCook</span>
                     <span class="text-gray-300 inline-block">.com</span>
@@ -27,7 +27,7 @@
                 </button>
             </div>
         </div>
-        <div id="links" class="text-gray-200 px-2 pt-2 pb-4 hidden sm:flex sm:p-0">
+        <div id="links" class="text-gray-200 px-2 pt-2 pb-4 hidden sm:flex sm:p-0 translate-x-0">
             <a class = "block px-2 py-1 text-white font-semibold hover:bg-gray-600 rounded" href={% url 'welcome' %}>home</a>
             <a class = "block px-2 py-1 mt-1 text-white font-semibold hover:bg-gray-600 rounded sm:mt-0 sm:ml-2" href={% url 'startGame' %}>tictactoe</a>
             <a class = "block px-2 py-1 mt-1 text-white font-semibold hover:bg-gray-600 rounded sm:mt-0 sm:ml-2" href={% url 'resume' %}>resume</a>
