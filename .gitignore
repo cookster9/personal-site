@@ -2,6 +2,7 @@
 creds.py
 my.cnf
 /static/
+/staticfiles/
 
 # SSL
 ssl-keys/
