@@ -4,6 +4,7 @@ cryptography==44.0.0
 Django==5.1.4
 django-tictactoe-htmx @ git+https://github.com/cookster9/django-htmx-tictactoe.git@9c2fbb50bf08993c97390a3ed40530360d22f567
 gunicorn==23.0.0
+mod_wsgi==5.0.2
 packaging==24.2
 pycparser==2.22
 pytailwindcss==0.2.0
