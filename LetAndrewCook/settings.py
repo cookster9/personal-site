@@ -142,10 +142,10 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # email
-DEFAULT_FROM_EMAIL = "andrew@letandrewcook.com"
+DEFAULT_FROM_EMAIL = os.getenv('MY_EMAIL')
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"  # new
 EMAIL_HOST = 'smtp.zoho.com'
-EMAIL_HOST_USER = 'andrew@letandrewcook.com'
+EMAIL_HOST_USER = os.getenv('MY_EMAIL')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
