@@ -159,3 +159,25 @@ CACHES = {
         "TIMEOUT": 60 * 60 * 12,
     }
 }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(os.path.dirname(__file__), 'error.log'),
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'file'],
+            'level': 'ERROR',  # Logs only errors and critical issues
+            'propagate': True,
+        },
+    },
+}
+
