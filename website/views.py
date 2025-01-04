@@ -4,6 +4,7 @@ from django.conf import settings
 from django.core.mail import BadHeaderError
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
+from smtplib import SMTPDataError
 
 # /
 def welcome(request):
@@ -22,10 +23,13 @@ def apps_page(request):
 
 # /contact
 def contact_page(request):
+    context = {}
     if request.method == "GET":
         form = ContactForm()
+        context['form']=form
     else:
         form = ContactForm(request.POST)
+        context['form']=form
         if form.is_valid():
             subject = form.cleaned_data["subject"]
             app_email = settings.DEFAULT_FROM_EMAIL
@@ -34,7 +38,6 @@ def contact_page(request):
             email = EmailMessage(
                 subject=subject,
                 body=message,
-                from_email=your_email,
                 to=[app_email],
                 reply_to=[your_email],
                 headers={'Content-Type': 'text/plain'},
@@ -43,8 +46,16 @@ def contact_page(request):
                 email.send()
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
-            return redirect("success")
-    return render(request, 'website/contact.html', {"form": form})
+            except SMTPDataError:
+                return HttpResponse("The SMTP server didn't accept the data")
+            except Exception as e:
+                # Code to handle the exception
+                print("An exception occurred:", type(e).__name__)
+                print("Exception message:", e)
+            return render(request, 'website/success.html',{})
+        else:
+            return render(request, 'website/contact_component.html', context)
+    return render(request, 'website/contact.html', context)
 
 # /success
 def success(request):
