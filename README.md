@@ -11,6 +11,7 @@ Once you install the tailwind cli from pip, run it like this to watch html to cr
 \
 tailwindcss -i ./website/static/website/css/input.css -o ./website/static/website/css/output.css --watch
 \
+\
 Minify:\
 \
 tailwindcss -o ./website/static/website/css/output.css --minify
