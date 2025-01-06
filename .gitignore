@@ -4,6 +4,9 @@ my.cnf
 /static/
 /staticfiles/
 
+# Mac
+.DS_Store
+
 # SSL
 ssl-keys/
 ssl-certs/
