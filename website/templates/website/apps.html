@@ -5,12 +5,13 @@
   <div class="container mx-auto px-4 py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     <div class="bg-white p-6 text-center">
         <h2 class="text-xl font-semibold text-center text-gray-600 p-2">django-tictactoe-htmx<h2>
-        <div class="shadow-lg rounded-lg">
-            <a href={% url 'startGame' %}>
+        <a href={% url 'startGame' %}>
+            <div class="h-52 shadow-lg rounded-lg flex items-center">
                 <img src="{% static 'website/images/ttt_preview.png' %}">
-            </a>
-        </div>
+           </div>
+        </a>
         <p class="text-sm text-left text-gray-500 p-1">Play tic tac toe in browser using htmx</p>
+        <p class="text-sm text-left text-gray-500 p-1">Installed as a Django app within the website Django project.</p>
     </div>
   </div>
 {% endblock %}
