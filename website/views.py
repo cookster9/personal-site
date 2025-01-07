@@ -54,7 +54,7 @@ def contact_page(request):
                 print("Exception message:", e)
             return render(request, 'website/success.html',{})
         else:
-            return render(request, 'website/contact_component.html', context)
+            return render(request, 'website/contact.html#contact-partial', context)
     return render(request, 'website/contact.html', context)
 
 # /success

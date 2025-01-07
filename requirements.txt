@@ -2,6 +2,7 @@ asgiref==3.8.1
 cffi==1.17.1
 cryptography==44.0.0
 Django==5.1.4
+django-template-partials==24.4
 django-tictactoe-htmx @ git+https://github.com/cookster9/django-htmx-tictactoe.git@82ccd62f881ebfe1d480ca740d9a5756c65b86af
 gunicorn==23.0.0
 mod_wsgi==5.0.2

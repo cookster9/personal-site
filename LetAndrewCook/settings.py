@@ -39,6 +39,7 @@ ALLOWED_HOSTS =os.getenv('ALLOWED_HOSTS').split(",")
 # Application definition
 
 INSTALLED_APPS = [
+    "template_partials",
     'tictactoe_app',
     'website.apps.WebsiteConfig',
     'django.contrib.admin',
