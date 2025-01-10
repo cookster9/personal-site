@@ -1,10 +1,10 @@
 # Welcome!
-This is my personal site. I like the idea of having a web presense where I can showcase all my projects.
+LetAndrewCook.com is my personal site. I like the idea of having a web presense where I can showcase all my projects.
 
-# Currently Installed Webapps
+# Currently Installed Django Apps
 https://github.com/cookster9/django-htmx-tictactoe
 
-# Tailwind 
+# Tailwind Reference
 https://tailwindcss.com/docs/installation
 
 Once you install the tailwind cli from pip, run it like this to watch html to create css:\
