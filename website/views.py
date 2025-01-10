@@ -16,6 +16,12 @@ def resume_page(request):
     context = {}
     return render(request, 'website/resume.html', context)
 
+# /links
+def links_page(request):
+    context = {}
+    return render(request, 'website/links.html', context)
+
+
 # /apps
 def apps_page(request):
     context = {}
