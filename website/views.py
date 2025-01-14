@@ -40,7 +40,7 @@ def contact_page(request):
             subject = form.cleaned_data["subject"]
             app_email = settings.DEFAULT_FROM_EMAIL
             your_email = form.cleaned_data["your_email"]
-            message = your_email+'<br>'+form.cleaned_data['message']
+            message = your_email+'\n'+form.cleaned_data['message']
             email = EmailMessage(
                 subject=subject,
                 body=message,
