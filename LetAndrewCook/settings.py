@@ -166,19 +166,15 @@ LOGGING = {
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
+            'level': 'DEBUG',  # Change to INFO or ERROR for less verbosity
             'class': 'logging.StreamHandler',
-        },
-        'file': {
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(os.path.dirname(__file__), 'error.log'),
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'file'],
-            'level': 'ERROR',  # Logs only errors and critical issues
+            'handlers': ['console'],
+            'level': 'DEBUG',  # Adjust based on your needs
             'propagate': True,
         },
     },
 }
-
