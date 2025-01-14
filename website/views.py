@@ -5,6 +5,11 @@ from django.core.mail import BadHeaderError
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from smtplib import SMTPDataError
+from django.http import HttpResponseServerError
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 # /
 def welcome(request):
@@ -20,7 +25,6 @@ def resume_page(request):
 def links_page(request):
     context = {}
     return render(request, 'website/links.html', context)
-
 
 # /apps
 def apps_page(request):
@@ -51,13 +55,16 @@ def contact_page(request):
             try:
                 email.send()
             except BadHeaderError:
-                return HttpResponse("Invalid header found.")
+                logger.error("Invalid header found.")
+                return HttpResponseServerError("Internal Server Error")
             except SMTPDataError:
-                return HttpResponse("The SMTP server didn't accept the data")
+                logger.error("The SMTP server didn't accept the data.")
+                return HttpResponseServerError("Internal Server Error")
             except Exception as e:
                 # Code to handle the exception
-                print("An exception occurred:", type(e).__name__)
-                print("Exception message:", e)
+                logger.error("An exception occurred:", type(e).__name__)
+                logger.error("Exception message:", e)
+                return HttpResponseServerError("Internal Server Error")
             return render(request, 'website/success.html',{})
         else:
             return render(request, 'website/contact.html#contact-partial', context)
