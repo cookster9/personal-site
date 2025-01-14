@@ -161,19 +161,20 @@ CACHES = {
     }
 }
 
+LOG_LEVEL = os.getenv('LOG_LEVEL')
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
         'console': {
-            'level': 'INFO',  # Change to INFO or ERROR for less verbosity
+            'level': LOG_LEVEL,  # Change to INFO or ERROR for less verbosity
             'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
         'django': {
             'handlers': ['console'],
-            'level': 'INFO',  # Adjust based on your needs
+            'level': LOG_LEVEL,  # Adjust based on your needs
             'propagate': True,
         },
     },
